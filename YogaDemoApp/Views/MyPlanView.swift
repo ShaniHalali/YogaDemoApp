@@ -7,16 +7,50 @@
 
 import SwiftUI
 
+import SwiftUI
+
 struct MyPlanView: View {
-    init() {
-        let test = SessionDataService.loadSessions()
-    
-    }
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            //background
+            Color.gray.opacity(0.2)
+                .ignoresSafeArea()
+            
+            VStack(spacing: 20) {
+                VStack(spacing: 4) {
+                    Text("MY PLAN")
+                        .font(.system(size: 20))
+                        .bold()
+                    //line
+                    Rectangle()
+                        .frame(height: 2)
+                        .frame(maxWidth: 90)
+                        .foregroundColor(.gray)
+                    // Chapther
+                    Text("CHAPTER 1")
+                        .font(.subheadline)
+                    // ChapterName
+                    Text("Sun Salutation\nVariation")
+                        .font(.title2)
+                        .bold()
+                        .multilineTextAlignment(.center)
+                }
+                .foregroundColor(.black)
+                .padding(.top, 40)
+                
+                Spacer().frame(height: 40)
+                
+                // scroll view
+        
+            }
+        }
+  
     }
 }
 
 #Preview {
     MyPlanView()
 }
+
+
+
