@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  YogaDemoApp
 //
-//  Created by Lior.Avraham on 27/12/2025.
+//  Created by ShaniHalali on 27/12/2025.
 //
 
 import SwiftUI

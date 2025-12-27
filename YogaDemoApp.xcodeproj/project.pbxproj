@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		60533B202EFFD144003F9093 /* YogaDemoApp */ = {
+		602609BF2EFFDB3A00A1703A /* YogaDemoApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = YogaDemoApp;
 			sourceTree = "<group>";
@@ -32,7 +32,7 @@
 		60533B152EFFD144003F9093 = {
 			isa = PBXGroup;
 			children = (
-				60533B202EFFD144003F9093 /* YogaDemoApp */,
+				602609BF2EFFDB3A00A1703A /* YogaDemoApp */,
 				60533B1F2EFFD144003F9093 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +61,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				60533B202EFFD144003F9093 /* YogaDemoApp */,
+				602609BF2EFFDB3A00A1703A /* YogaDemoApp */,
 			);
 			name = YogaDemoApp;
 			packageProductDependencies = (

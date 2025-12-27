@@ -2,7 +2,7 @@
 //  YogaDemoAppApp.swift
 //  YogaDemoApp
 //
-//  Created by Lior.Avraham on 27/12/2025.
+//  Created by Shani Halali on 27/12/2025.
 //
 
 import SwiftUI
@@ -11,7 +11,12 @@ import SwiftUI
 struct YogaDemoAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
         }
     }
 }
+
+#Preview {
+    MainTabView()
+}
+
