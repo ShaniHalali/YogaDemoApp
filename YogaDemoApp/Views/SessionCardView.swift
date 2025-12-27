@@ -41,8 +41,8 @@ struct SessionCardView: View {
 
 
             
-            Button("Start") {
-                print("Start")
+            Button("Did it") {
+                print("Did it")
             }
             .padding(.horizontal, 32)
             .padding(.vertical, 10)

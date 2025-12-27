@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct MyPlanView: View {
     @State private var selectedIndex: Int = 0
     @State private var sessions: [SessionItem] = SessionDataService.loadSessions()
