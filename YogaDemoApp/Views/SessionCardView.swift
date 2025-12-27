@@ -10,6 +10,13 @@ import SwiftUI
 struct SessionCardView: View {
     let session: SessionItem
     let index: Int
+    @State private var isDone: Bool
+
+    init(session: SessionItem, index: Int) {
+        self.session = session
+        self.index = index
+        _isDone = State(initialValue: UserDefaultsManager.isSessionDone(id: session.id))
+    }
 
     var body: some View {
         VStack(spacing: 12) {
@@ -41,9 +48,14 @@ struct SessionCardView: View {
 
 
             
-            Button("Did it") {
-                print("Did it")
+            Button(action: {
+                UserDefaultsManager.markSessionAsDone(id: session.id)
+                isDone = true
+            }) {
+                Text(isDone ? "Completed!" : "Did it")
+                    .frame(maxWidth: .infinity)
             }
+            
             .padding(.horizontal, 32)
             .padding(.vertical, 10)
             .background(Color.mint)

@@ -20,7 +20,6 @@ struct SessionItem: Identifiable, Codable {
     var id: UUID {
         UUID()
     }
-
 }
 
 
