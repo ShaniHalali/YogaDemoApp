@@ -13,7 +13,7 @@ struct MainTabView: View {
         TabView(selection: $selectedTab) {
             // my plan
             NavigationStack {
-                Text("My Plan View Placeholder")
+                MyPlanView()
             }
             .tabItem {
                 Image(selectedTab == 0 ? "tab_bar_myplan_selected" : "tab_bar_myplan_unselected")
