@@ -6,7 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		602609DD2F00210000A1703A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 602609DC2F00210000A1703A /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		602609DC2F00210000A1703A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		60533B1E2EFFD144003F9093 /* YogaDemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YogaDemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -32,6 +37,7 @@
 		60533B152EFFD144003F9093 = {
 			isa = PBXGroup;
 			children = (
+				602609DC2F00210000A1703A /* README.md */,
 				602609BF2EFFDB3A00A1703A /* YogaDemoApp */,
 				60533B1F2EFFD144003F9093 /* Products */,
 			);
@@ -109,6 +115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				602609DD2F00210000A1703A /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
