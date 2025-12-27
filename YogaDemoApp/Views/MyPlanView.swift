@@ -10,13 +10,16 @@ import SwiftUI
 import SwiftUI
 
 struct MyPlanView: View {
+    @State private var selectedIndex: Int = 0
+    @State private var sessions: [SessionItem] = SessionDataService.loadSessions()
+
     var body: some View {
         ZStack {
             //background
             Color.gray.opacity(0.2)
                 .ignoresSafeArea()
             
-            VStack(spacing: 20) {
+            VStack(spacing: 10) {
                 VStack(spacing: 4) {
                     Text("MY PLAN")
                         .font(.system(size: 20))
@@ -38,9 +41,12 @@ struct MyPlanView: View {
                 .foregroundColor(.black)
                 .padding(.top, 40)
                 
-                Spacer().frame(height: 40)
+                Spacer().frame(height: 10)
                 
                 // scroll view
+                SessionsScreen()
+
+
         
             }
         }
@@ -51,6 +57,7 @@ struct MyPlanView: View {
 #Preview {
     MyPlanView()
 }
+
 
 
 
