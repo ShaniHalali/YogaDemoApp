@@ -60,7 +60,7 @@ private extension SessionsScreen {
 
                             Group {
                                 if isDone {
-                                    Image(systemName: "checkmark")
+                                    Image("scroller_checkmark")
                                 } else {
                                     Text("\(index + 1)")
                                         .fontWeight(.bold)
