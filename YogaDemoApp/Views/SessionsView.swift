@@ -36,7 +36,12 @@ private extension SessionsScreen {
     var cardsCarousel: some View {
         TabView(selection: $selectedIndex) {
             ForEach(sessions.indices, id: \.self) { index in
-                SessionCardView(session: sessions[index], index: index)
+                SessionCardView(
+                    session: sessions[index],
+                    index: index,
+                    selectedIndex: $selectedIndex,
+                    totalSessions: sessions.count
+                )
                     .scaleEffect(selectedIndex == index ? 1.0 : 0.92)
                     .opacity(selectedIndex == index ? 1.0 : 0.7)
                     .tag(index)

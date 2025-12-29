@@ -11,11 +11,15 @@ struct SessionCardView: View {
     let session: SessionItem
     let index: Int
     @State private var isDone: Bool
+    @Binding var selectedIndex: Int
+    let totalSessions: Int
 
-    init(session: SessionItem, index: Int) {
+    init(session: SessionItem, index: Int, selectedIndex: Binding<Int> ,totalSessions: Int) {
         self.session = session
         self.index = index
         _isDone = State(initialValue: UserDefaultsManager.isSessionDone(id: session.id))
+        self._selectedIndex = selectedIndex
+        self.totalSessions = totalSessions
     }
 
     var body: some View {
@@ -57,6 +61,12 @@ struct SessionCardView: View {
             Button(action: {
                 UserDefaultsManager.markSessionAsDone(id: session.id)
                 isDone = true
+                
+                if selectedIndex < totalSessions-1 {
+                    withAnimation {
+                        selectedIndex += 1
+                    }
+                }
             }) {
                 Text(isDone ? "Completed!" : "Did it")
                     .frame(maxWidth: .infinity)
