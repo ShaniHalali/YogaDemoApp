@@ -17,9 +17,10 @@ struct SessionItem: Identifiable, Codable {
     let chapterName: ChapterName
     let chapter: Int
     let difficulty: Difficulty
-    var id: UUID {
-        UUID()
+    var id: String {
+        "\(chapter)-\(quoteAuthor)"
     }
+
 }
 
 

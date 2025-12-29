@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct MyPlanView: View {
-    @State private var selectedIndex: Int = 0
+    @State private var selectedSessionId: String?
     @State private var sessions: [SessionItem] = SessionDataService.loadSessions()
+    
+    // computed property for find out the session by id
+    private var selectedSession: SessionItem? {
+        guard let id = selectedSessionId else { return nil }
+        let session = sessions.first { $0.id == id }
+        return session
+    }
 
     var body: some View {
+        let session = selectedSession
         ZStack {
             //background
+            Image("chapter\(session?.chapter ?? 1)_bg")
             Color.gray.opacity(0.2)
                 .ignoresSafeArea()
             
@@ -28,10 +37,10 @@ struct MyPlanView: View {
                         .frame(maxWidth: 90)
                         .foregroundColor(.gray)
                     // Chapther
-                    Text("CHAPTER 1")
+                    Text("CHAPTER \(String(session?.chapter ?? 0))")
                         .font(.subheadline)
                     // ChapterName
-                    Text("Sun Salutation\nVariation")
+                    Text(" \(session?.chapterName.rawValue ?? "")")
                         .font(.title2)
                         .bold()
                         .multilineTextAlignment(.center)
@@ -39,10 +48,13 @@ struct MyPlanView: View {
                 .foregroundColor(.black)
                 .padding(.top, 40)
                 
-                Spacer().frame(height: 10)
-                
+                            
                 // scroll view
-                SessionsScreen()
+                SessionsScreen(
+                    sessions: sessions,
+                    selectedSessionId: $selectedSessionId
+                )
+
 
 
         

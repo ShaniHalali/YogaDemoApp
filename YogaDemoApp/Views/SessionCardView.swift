@@ -73,5 +73,5 @@ struct SessionCardView: View {
 
 
 #Preview {
-    SessionsScreen()
+  //  SessionsScreen()
 }

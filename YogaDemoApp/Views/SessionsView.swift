@@ -10,9 +10,9 @@ import SwiftUI
 
 struct SessionsScreen: View {
 
+    let sessions: [SessionItem]
+    @Binding var selectedSessionId: String?
     @State private var selectedIndex: Int = 0
-
-    @State private var sessions: [SessionItem] = SessionDataService.loadSessions()
 
     var body: some View {
         VStack(spacing: 24) {
@@ -20,8 +20,17 @@ struct SessionsScreen: View {
             numbersCarousel
         }
         .padding(.vertical)
+        .onAppear {
+            selectedIndex = 0
+            selectedSessionId = sessions.first?.id
+        }
     }
 }
+
+
+
+
+
 
 private extension SessionsScreen {
     var cardsCarousel: some View {
@@ -66,15 +75,15 @@ private extension SessionsScreen {
                 .padding(.horizontal)
             }
             .onChange(of: selectedIndex) { _, newValue in
+                selectedSessionId = sessions[newValue].id
+                print("selected session id: \(selectedSessionId)")
                 withAnimation(.easeInOut) {
                     proxy.scrollTo(newValue, anchor: .center)
                 }
             }
+
+
         }
     }
 
-}
-
-#Preview {
-    SessionsScreen()
 }

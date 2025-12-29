@@ -10,9 +10,9 @@ import Foundation
 struct UserDefaultsManager {
     private static let doneSessionsKey = "doneSessions"
 
-    static func markSessionAsDone(id: UUID) {
+    static func markSessionAsDone(id: String) {
         var current = fetchDoneSessions()
-        let idString = id.uuidString
+        let idString = id
         if !current.contains(idString) {
             current.append(idString)
             UserDefaults.standard.set(current, forKey: doneSessionsKey)
@@ -23,8 +23,8 @@ struct UserDefaultsManager {
         UserDefaults.standard.stringArray(forKey: doneSessionsKey) ?? []
     }
 
-    static func isSessionDone(id: UUID) -> Bool {
-        fetchDoneSessions().contains(id.uuidString)
+    static func isSessionDone(id: String) -> Bool {
+        fetchDoneSessions().contains(id)
     }
 
     static func resetDoneSessions() {
