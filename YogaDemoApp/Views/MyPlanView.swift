@@ -27,6 +27,7 @@ struct MyPlanView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 10) {
+                Spacer(minLength: 40)
                 VStack(spacing: 4) {
                     Text("MY PLAN")
                         .font(.system(size: 20))

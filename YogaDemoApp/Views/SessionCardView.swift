@@ -19,7 +19,7 @@ struct SessionCardView: View {
     }
 
     var body: some View {
-        var cardWidth: CGFloat = 280
+        let cardWidth: CGFloat = 280
         VStack(spacing: 12) {
 
             VStack(spacing: 8) {
