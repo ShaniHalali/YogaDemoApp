@@ -21,16 +21,10 @@ struct SessionsScreen: View {
         }
         .padding(.vertical)
         .onAppear {
-            selectedIndex = 0
-            selectedSessionId = sessions.first?.id
+            setupInitialSelectedIndex()
         }
     }
 }
-
-
-
-
-
 
 private extension SessionsScreen {
     var cardsCarousel: some View {
@@ -42,10 +36,10 @@ private extension SessionsScreen {
                     selectedIndex: $selectedIndex,
                     totalSessions: sessions.count
                 )
-                    .scaleEffect(selectedIndex == index ? 1.0 : 0.92)
-                    .opacity(selectedIndex == index ? 1.0 : 0.7)
-                    .tag(index)
-                    .padding(.horizontal, 24)
+                .scaleEffect(selectedIndex == index ? 1.0 : 0.92)
+                .opacity(selectedIndex == index ? 1.0 : 0.7)
+                .tag(index)
+                .padding(.horizontal, 24)
             }
         }
         .frame(height: 260)
@@ -95,6 +89,19 @@ private extension SessionsScreen {
         }
     }
     
+    
+    private func setupInitialSelectedIndex() {
+        if let lastCompletedId = UserDefaultsManager.getLastCompletedSession(),
+           let index = sessions.firstIndex(where: { $0.id == lastCompletedId }) {
+            
+            selectedIndex = (index < sessions.count - 1) ? index + 1 : index
+        } else {
+            selectedIndex = 0
+        }
+        
+        selectedSessionId = sessions[selectedIndex].id
+    }
+    
 }
 
 
@@ -103,3 +110,5 @@ private extension SessionsScreen {
 #Preview {
     MyPlanView()
 }
+
+

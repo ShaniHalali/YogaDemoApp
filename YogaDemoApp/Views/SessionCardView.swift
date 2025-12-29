@@ -61,6 +61,7 @@ struct SessionCardView: View {
             Button(action: {
                 UserDefaultsManager.markSessionAsDone(id: session.id)
                 isDone = true
+                UserDefaultsManager.setLastCompletedSession(id: session.id)
                 
                 if selectedIndex < totalSessions-1 {
                     withAnimation {

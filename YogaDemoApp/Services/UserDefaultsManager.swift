@@ -9,6 +9,7 @@ import Foundation
 
 struct UserDefaultsManager {
     private static let doneSessionsKey = "doneSessions"
+    private static let lastCompletedSessionKey = "lastCompletedSession"
 
     static func markSessionAsDone(id: String) {
         var current = fetchDoneSessions()
@@ -30,4 +31,13 @@ struct UserDefaultsManager {
     static func resetDoneSessions() {
         UserDefaults.standard.removeObject(forKey: doneSessionsKey)
     }
+    // last completed session
+    static func setLastCompletedSession(id: String) {
+        UserDefaults.standard.set(id, forKey: lastCompletedSessionKey)
+    }
+    
+    static func getLastCompletedSession() -> String? {
+        UserDefaults.standard.string(forKey: lastCompletedSessionKey)
+    }
+    
 }
