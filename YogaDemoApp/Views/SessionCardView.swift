@@ -33,7 +33,8 @@ struct SessionCardView: View {
                 HStack(spacing: 10) {
                     Image("session_duration")
                     Text("\(session.length) min")
-                    // need to fit the image difficulty
+                    //image difficulty
+                    Image("intensity_\(session.difficulty.difficultNumber)_dark")
                     Text("\(session.difficulty)")
                 }
 

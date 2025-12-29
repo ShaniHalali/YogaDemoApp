@@ -35,5 +35,18 @@ enum Difficulty: String, Codable {
     case easy = "Easy"
     case hard = "Hard"
     case medium = "Medium"
+    
+    // computed value for difficulty image
+    var difficultNumber: Int {
+        switch self {
+        case .easy:
+            return 1
+        case .medium:
+            return 2
+        case .hard:
+            return 3
+        }
+    }
 }
+
 
