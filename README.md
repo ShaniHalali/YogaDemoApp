@@ -1,3 +1,14 @@
+# Yoga demo app
+
+<img src="https://github.com/user-attachments/assets/d666dd35-8d15-402a-8d8d-ad40c3a2a51e" alt="WelcomeController" width="30%" height="30%">
+<img src="https://github.com/user-attachments/assets/8e32d2e1-1d8e-45fd-81db-ecce762cb8c3" alt="ResultController" width="30%" height="30%">
+<img src="https://github.com/user-attachments/assets/05659e1a-399c-4e79-a258-f6417e479a2e" alt="GameController" width="30%" height="30%">
+
+## Screen recording
+https://github.com/user-attachments/assets/cc7c0621-78b2-49f7-94a2-caae0e3ac782
+
+
+
 YogaDemoApp – Project Context
 
 Overview  
