@@ -19,12 +19,17 @@ struct SessionCardView: View {
     }
 
     var body: some View {
+        var cardWidth: CGFloat = 280
         VStack(spacing: 12) {
 
             VStack(spacing: 8) {
                 Text("Session \(index+1)")
                     .font(.title2)
                     .fontWeight(.bold)
+                    .foregroundColor(.black)
+                
+                ExtractedUnderLine(width: cardWidth)
+                
                 HStack(spacing: 10) {
                     Image("session_duration")
                     Text("\(session.length) min")
@@ -63,8 +68,8 @@ struct SessionCardView: View {
             .cornerRadius(20)
         }
         .padding()
-        .frame(width: 280, height: 260)
-        .background(.ultraThinMaterial)
+        .frame(width: cardWidth, height: 260)
+        .background(.white.opacity(0.85))
         .cornerRadius(24)
         .shadow(radius: 5)
     }
@@ -73,5 +78,6 @@ struct SessionCardView: View {
 
 
 #Preview {
-  //  SessionsScreen()
+    //SessionsScreen(sessions: [SessionItem], selectedSessionId: <#T##Binding<String?>#>)
+    MyPlanView()
 }

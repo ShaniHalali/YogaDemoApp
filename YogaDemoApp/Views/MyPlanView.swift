@@ -32,10 +32,7 @@ struct MyPlanView: View {
                         .font(.system(size: 20))
                         .bold()
                     //line
-                    Rectangle()
-                        .frame(height: 2)
-                        .frame(maxWidth: 90)
-                        .foregroundColor(.gray)
+                    ExtractedUnderLine(width: 90)
                     // Chapther
                     Text("CHAPTER \(String(session?.chapter ?? 0))")
                         .font(.subheadline)
@@ -70,4 +67,12 @@ struct MyPlanView: View {
 
 
 
-
+struct ExtractedUnderLine: View {
+    let width: CGFloat
+    var body: some View {
+        Rectangle()
+            .frame(height: 2)
+            .frame(maxWidth: width)
+            .foregroundColor(.gray)
+    }
+}
