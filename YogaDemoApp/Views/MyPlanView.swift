@@ -26,8 +26,8 @@ struct MyPlanView: View {
             Color.gray.opacity(0.2)
                 .ignoresSafeArea()
             
-            VStack(spacing: 10) {
-                Spacer(minLength: 40)
+            VStack(spacing: 40) {
+               // Spacer(minLength: 40)
                 VStack(spacing: 4) {
                     Text("MY PLAN")
                         .font(.system(size: 20))
