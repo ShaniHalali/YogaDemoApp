@@ -13,6 +13,10 @@ struct SessionCardView: View {
     @State private var isDone: Bool
     @Binding var selectedIndex: Int
     let totalSessions: Int
+    // alert states
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+
 
     init(session: SessionItem, index: Int, selectedIndex: Binding<Int> ,totalSessions: Int) {
         self.session = session
@@ -57,17 +61,18 @@ struct SessionCardView: View {
                 .foregroundColor(.gray)
 
 
-            
+            // MARK: - Did it button
             Button(action: {
                 UserDefaultsManager.markSessionAsDone(id: session.id)
                 isDone = true
                 UserDefaultsManager.setLastCompletedSession(id: session.id)
                 
-                if selectedIndex < totalSessions-1 {
-                    withAnimation {
-                        selectedIndex += 1
-                    }
-                }
+                
+                // Alert message
+                alertMessage = "Good Job! You completed the session!"
+                showAlert = true
+                
+                
             }) {
                 Text(isDone ? "Completed!" : "Did it")
                     .frame(maxWidth: .infinity)
@@ -84,6 +89,18 @@ struct SessionCardView: View {
         .background(.white.opacity(0.85))
         .cornerRadius(24)
         .shadow(radius: 5)
+        .alert("Completed Session", isPresented: $showAlert) {
+            Button("OK", role: .cancel) {
+                if selectedIndex < totalSessions-1 {
+                    withAnimation {
+                        selectedIndex += 1
+                    }
+                 
+                }
+            }
+        } message: {
+            Text(alertMessage)
+        }
     }
 }
 
